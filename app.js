@@ -1,5 +1,4 @@
 "use strict";
-const normalizedData = { byId: {}, allIds: [] };
 const posts = [
     {
         id: '62e69d5a5458aac0ed320b35',
@@ -38,7 +37,8 @@ const posts = [
     },
 ];
 const normalizeData = (unnormalizedData) => {
-    unnormalizedData.map(item => {
+    const normalizedData = { byId: {}, allIds: [] };
+    unnormalizedData.forEach(item => {
         normalizedData.byId[item.id] = item;
         normalizedData.allIds.push(item.id);
     });

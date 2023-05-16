@@ -9,7 +9,7 @@ interface NormalizedData {
 	allIds: string[]
 }
 
-const normalizedData: NormalizedData = { byId: {}, allIds: [] }
+
 
 const posts: PostInterface[] = [
 	{
@@ -50,7 +50,8 @@ const posts: PostInterface[] = [
 ]
 
 const normalizeData = (unnormalizedData: PostInterface[]): NormalizedData => {
-	unnormalizedData.map(item => {
+	const normalizedData: NormalizedData = { byId: {}, allIds: [] }
+	unnormalizedData.forEach(item => {
 		normalizedData.byId[item.id] = item
 		normalizedData.allIds.push(item.id)
 	})
